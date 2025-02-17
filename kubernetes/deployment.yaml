@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-assessment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final-assessment
+  template:
+    metadata:
+      labels:
+        app: final-assessment
+    spec:
+      containers:
+        - name: final_assessment
+          image: darshan321/final_assessment:latest
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
